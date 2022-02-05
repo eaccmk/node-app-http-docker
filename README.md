@@ -8,7 +8,7 @@
 3. [Running docker 🐋](#running-docker-)
    * [Verify docker Image 🖼️](#verify-docker-image-) 
 4. [Running docker Image 🎽](#running-docker-image-)
-5. [Testing (is it workong) ✅ ❎](#testing-is-it-workong-)
+5. [Testing (is it working) ✅ ❎](#testing-is-it-working-)
 6. [STOPPING docker (running container) 🛑](#stopping-docker-docker-container-)
 7. [MIT LICENSE 🛡️ ](#license-)
 
@@ -100,7 +100,7 @@ For more details on `-p`  read [**Publish or expose port (-p, --expose)**🔗](h
 docker ps
 ```
 
-## Testing (is it workong ✅ ❎)
+## Testing (is it working ✅ ❎)
 
 Lets hit the docker image as a **client** / **User** 
 

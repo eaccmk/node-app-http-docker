@@ -3,14 +3,13 @@
 # Table of Contents
 
 
-[What is node-app-http-docker ?](what-is-node-app-http-docker--)
-[How to run it ?](how-to-run-it--)
-[How to Run / start docker ](how-to-run--start-docker--)
-    * [Running docker](running-docker) 
-    * [Verify docker Image](verifydocker-image) 
-[Running docker Image](running-docker-image)
-[Testing (is it workong](testing--is-it-working)
-[STOPPING docker (running container)](stopping-docker--running-container--)
+1. [What is node-app-http-docker ?](what-is-node-app-http-docker--)
+2. [How to run it ?](how-to-run-it--)
+3. [Running docker](running-docker)
+   * [Verify docker Image](verifydocker-image) 
+4. [Running docker Image](running-docker-image)
+5. [Testing (is it workong)](testing--is-it-working--)
+6. [STOPPING docker (running container)](stopping-docker--running-container--)
 
 
 ## What is node-app-http-docker ?
@@ -21,18 +20,14 @@ For getting started with a RESTFUL api server locally using [docker](https://doc
 
 - It 🏃runs a server (docker) using `nodejs` [v16] 
 - Exposes following  RESTFUL endpoints ( no database required) with all **CRUD** operations
- 
-    - **GET**  (CRUD : C**Read**UD)
-          - 0.0.0.0:8080/
-          - 0.0.0.0:8080/health
-          - 0.0.0.0:8080/api/todos
-          - 0.0.0.0:8080/api/todos/`{id}`
-    - **PATCH/PUT** (CRUD : CR**Update**D)
-          - 0.0.0.0:8080/api/todos/`{id}`
-    - **POST** {with body} (CRUD : **Create**RUD)
-          - 0.0.0.0:8080/api/todos
-    - **DELETE** (CRUD : CRU**Delete**)
-          - 0.0.0.0:8080/api/todos/`{id}`   
+
+|**Rest API** call          | **CRUD** operation | REST endpoints|
+|:----:                 |:----:           |:----:|
+|**GET**                | **R**ead        | `http://0.0.0.0:8080/` <br /> `http://0.0.0.0:8080/health`  <br /> `http://0.0.0.0:8080/api/todos`  <br /> `http://0.0.0.0:8080/api/todos/{id}`|
+|**PATCH/PUT**          | **U**pdate)     | `http://0.0.0.0:8080/api/todos/{id}`|
+|**POST** {with body}   | **C**reate      | `http://0.0.0.0:8080/api/todos`|
+|**DELETE**             | **D**elete      | `http://0.0.0.0:8080/api/todos/{id}` |
+
  
  - You may get 3 types of **response**
  
@@ -49,11 +44,9 @@ Clone the repository on your machine
 
 |via **https** | via **ssh** |
 |:---:|:---:|
-|`git clone https://github.com/eaccmk/node-app-http-docker.git`|`git clone git@github.com:eaccmk/node-app-http-docker.git` |
+|``` git clone https://github.com/eaccmk/node-app-http-docker.git``` | ```git clone git@github.com:eaccmk/node-app-http-docker.git``` |
 
-Get into the cloned repo ☝️ like this 👇
-
-```
+```shell
 cd node-app-http-docker
 ```
 
@@ -62,15 +55,14 @@ cd node-app-http-docker
 
 If not, its highly recomended to [Get docker](https://docs.docker.com/get-docker/)
 
-## How to Run / start docker 
 
-### Running docker 
+## Running docker 
 
 ```
 docker build . -t node-app-http-docker
 ```
 
-To know why I used `-t Allocate a pseudo-TTY` read this [stackoverflow thread](https://stackoverflow.com/a/40026942)
+> To know why we used `-t Allocate a pseudo-TTY` read this [stackoverflow thread](https://stackoverflow.com/a/40026942)
 
 ### Verify docker Image
 
@@ -78,9 +70,8 @@ After `docker build` is completed, verify if a docker image is created and liste
 
 run `docker images`
 
-```
+```shell
 docker images
-Emulate Docker CLI using podman. Create /etc/containers/nodocker to quiet msg.
 REPOSITORY                      TAG         IMAGE ID      CREATED         SIZE
 localhost/node-app-http-docker  latest      8f74146744df  18 minutes ago  928 MB
 ```
@@ -90,10 +81,10 @@ also see you got a random (uniqie) **IMAGE ID** assigned to the image you just c
 
 ## Running docker Image
 
-Now that you have a image ID, lets run that image
+Now that you have a **IMAGE ID**, lets run that image
 
 
-```
+```shell
 docker run -p 8080:8080 8f74146744df
 ```
 
@@ -101,81 +92,30 @@ docker run -p 8080:8080 8f74146744df
 
 For more details on `-p`  read [**Publish or expose port (-p, --expose)**🔗](https://docs.docker.com/engine/reference/commandline/run/#publish-or-expose-port--p---expose) 
 
-❗ open a new tab and verify this docker (running)
+❗ open a new tab on terminal and verify this docker (running)
 
-```
+```shell
 docker ps
 ```
 
 ## Testing (is it workong ❓)
 
 Lets hit the docker image as a **client** / **User** 
- 1. From a new terminal tab; or
- 2. Browser
+
+|Test Type (Positive /Negative) |**CLIENT** On terminal | Response | **SERVER** (if Docker running with logs) | 
+|:----:|:---:|:---:|:---:|
+|✅ `Home Page` |`curl 0.0.0.0:8080`| *Welcome, this is your Home page* | `CalledGET : /`|
+|❎ `Invalid endpoint`|`http://0.0.0.0:8080/dascbajb` |`{"message":"Route not found"}`|`CalledGET : /dascbajb` <br \ > *This endpoint is not implemented / unavailable at the moment !!*|
+| ✅ `health check` | `http://0.0.0.0:8080/health` |`{"uptime":29.560686169,"message":"OK","timestamp":1644057630652}`|`CalledGET : /health`|
 
 
-> 1. From a new terminal tab
 
-```
-curl 0.0.0.0:8080
-```
-
-you should see this  :
-
-> Welcome, this is your Home page
-
-**SERVER** On previous tab ( where you ran `docker run ...`)
-
-```
-CalledGET : /
-```
-
-
-❎ Now lets try to hit an invalid endpoint
-
-
-```
-http://0.0.0.0:8080/dascbajb
-```
-
-or 
-
-As a user you will get `404`
-
-```
-{"message":"Route not found"}
-```
-
-
-**Server** (docker run tab)
-```
-CalledGET : /dascbajb
-This endpoint is not implemented / unavailable at the moment !!
-```
-
-✅ lets try one more 
-
-```
-http://0.0.0.0:8080/health
-```
-
-You will see something like 
-```
-{"uptime":29.560686169,"message":"OK","timestamp":1644057630652}node-app-http-docker $
-```
-
-**Server** (docker run tab)
-```
-CalledGET : /health
-```
-
-
-## STOPPING docker (docker container)
+## STOPPING docker (docker container) 🛑
 
 firts lets find the  runing one
 `docker ps`
 
-```
+```shell
 CONTAINER ID  IMAGE                                  COMMAND      CREATED            STATUS                 PORTS                   NAMES
 a5a149a53466  localhost/node-app-http-docker:latest  node app.js  About an hour ago  Up About a minute ago  0.0.0.0:8080->8080/tcp  ecstatic_cray
 ```
@@ -185,22 +125,27 @@ see the status column : **STATUS**
 Up About a minute ago
 ```
 
-Run 👉 
-Using **CONTAINER ID** `docker stop a5a149a5346` 
-or
+Stop using 👉 
+   1. **CONTAINER ID** 
+    ```shell
+    docker stop a5a149a5346
+    ``` 
+    2. **NAMES** 
+    ```shell
+    docker stop ecstatic_cray
+    ```
 
-Using **NAMES** `docker stop ecstatic_cray`
+In case you want to confirm:
+run `docker ps` it should show no running image 
 
-
-and after that (to double confirm) run `docker ps` it should show no running image 
-
-```
+```shell
 docker ps
 CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES
 ```
 
 
+## License 🔰
 
-
+**node-app-http-docker** was released under [MIT License](LICENSE)
 
 

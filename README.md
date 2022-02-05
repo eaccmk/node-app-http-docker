@@ -3,16 +3,17 @@
 # Table of Contents
 
 
-1. [What is node-app-http-docker ?](#what-is-node-app-http-docker--)
-2. [How to run it ?](#how-to-run-it--)
-3. [Running docker](#running-docker)
-   * [Verify docker Image](#verifydocker-image) 
+1. [What is node-app-http-docker ❓](#what-is-node-app-http-docker-)
+2. [Project setup 💼](#project-setup-)
+3. [Running docker 🐋](#running-docker-)
+   * [Verify docker Image 🖼️](#verify-docker-image) 
 4. [Running docker Image](#running-docker-image)
-5. [Testing (is it workong)](#testing--is-it-working--)
-6. [STOPPING docker (running container)](#stopping-docker--running-container--)
+5. [Testing (is it workong)](#testing-is-it-workong-)
+6. [STOPPING docker (running container)](#stopping-docker-docker-container-)
+7. [MIT LICENSE](#license-)
 
 
-## What is node-app-http-docker ?
+## What is node-app-http-docker ❓
 
 It is a working project (non Prod ready)
 
@@ -38,7 +39,7 @@ For getting started with a RESTFUL api server locally using [docker](https://doc
   |     **404**     |    `Not Found`    |
   
 
-## How to run it ?
+## Project setup 💼
 
 Clone the repository on your machine
 
@@ -57,7 +58,7 @@ cd node-app-http-docker
 If not, its highly recomended to [Get docker](https://docs.docker.com/get-docker/)
 
 
-## Running docker 
+## Running docker 🐋
 
 ```
 docker build . -t node-app-http-docker
@@ -65,7 +66,7 @@ docker build . -t node-app-http-docker
 
 > To know why we used `-t Allocate a pseudo-TTY` read this [stackoverflow thread](https://stackoverflow.com/a/40026942)
 
-### Verify docker Image
+### Verify docker Image 🖼️
 
 After `docker build` is completed, verify if a docker image is created and listed
 
@@ -80,7 +81,7 @@ localhost/node-app-http-docker  latest      8f74146744df  18 minutes ago  928 MB
 
 also see you got a random (uniqie) **IMAGE ID** assigned to the image you just created, in my case it was `8f74146744df`
 
-## Running docker Image
+## Running docker Image 🎽
 
 Now that you have a **IMAGE ID**, lets run that image
 
@@ -99,15 +100,15 @@ For more details on `-p`  read [**Publish or expose port (-p, --expose)**🔗](h
 docker ps
 ```
 
-## Testing (is it workong ❓)
+## Testing (is it workong ✅ ❎)
 
 Lets hit the docker image as a **client** / **User** 
 
 |Test Type (Positive /Negative) |**CLIENT** On terminal | Response | **SERVER** (if Docker running with logs) | 
 |:----:|:---:|:---:|:---:|
 |✅ `Home Page` |`curl 0.0.0.0:8080`| *Welcome, this is your Home page* | `CalledGET : /`|
-|❎ `Invalid endpoint`|`http://0.0.0.0:8080/dascbajb` |`{"message":"Route not found"}`|`CalledGET : /dascbajb` <br \ > This endpoint is not implemented / unavailable at the moment !!|
-| ✅ `health check` | `http://0.0.0.0:8080/health` |`{"uptime":29.560686169,` <br \ > `"message":"OK","timestamp":1644057630652}`|`CalledGET : /health`|
+|❎ `Invalid endpoint`|`http://0.0.0.0:8080/dascbajb` |`{"message":"Route not found"}`|`CalledGET : /dascbajb`  <br /> This endpoint is not implemented / unavailable at the moment !!|
+| ✅ `health check` | `http://0.0.0.0:8080/health` |`{"uptime":29.560686169,` <br /> `"message":"OK","timestamp":1644057630652}`|`CalledGET : /health`|
 
 
 

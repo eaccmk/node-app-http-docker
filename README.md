@@ -3,13 +3,13 @@
 # Table of Contents
 
 
-1. [What is node-app-http-docker ?](what-is-node-app-http-docker--)
-2. [How to run it ?](how-to-run-it--)
-3. [Running docker](running-docker)
-   * [Verify docker Image](verifydocker-image) 
-4. [Running docker Image](running-docker-image)
-5. [Testing (is it workong)](testing--is-it-working--)
-6. [STOPPING docker (running container)](stopping-docker--running-container--)
+1. [What is node-app-http-docker ?](#what-is-node-app-http-docker--)
+2. [How to run it ?](#how-to-run-it--)
+3. [Running docker](#running-docker)
+   * [Verify docker Image](#verifydocker-image) 
+4. [Running docker Image](#running-docker-image)
+5. [Testing (is it workong)](#testing--is-it-working--)
+6. [STOPPING docker (running container)](#stopping-docker--running-container--)
 
 
 ## What is node-app-http-docker ?
@@ -42,9 +42,10 @@ For getting started with a RESTFUL api server locally using [docker](https://doc
 
 Clone the repository on your machine
 
-|via **https** | via **ssh** |
+|**Using** | **Comand** |
 |:---:|:---:|
-|``` git clone https://github.com/eaccmk/node-app-http-docker.git``` | ```git clone git@github.com:eaccmk/node-app-http-docker.git``` |
+|via **https**|```git clone https://github.com/eaccmk/node-app-http-docker.git``` |
+|via **ssh**|```git clone git@github.com:eaccmk/node-app-http-docker.git``` |
 
 ```shell
 cd node-app-http-docker
@@ -105,8 +106,8 @@ Lets hit the docker image as a **client** / **User**
 |Test Type (Positive /Negative) |**CLIENT** On terminal | Response | **SERVER** (if Docker running with logs) | 
 |:----:|:---:|:---:|:---:|
 |✅ `Home Page` |`curl 0.0.0.0:8080`| *Welcome, this is your Home page* | `CalledGET : /`|
-|❎ `Invalid endpoint`|`http://0.0.0.0:8080/dascbajb` |`{"message":"Route not found"}`|`CalledGET : /dascbajb` <br \ > *This endpoint is not implemented / unavailable at the moment !!*|
-| ✅ `health check` | `http://0.0.0.0:8080/health` |`{"uptime":29.560686169,"message":"OK","timestamp":1644057630652}`|`CalledGET : /health`|
+|❎ `Invalid endpoint`|`http://0.0.0.0:8080/dascbajb` |`{"message":"Route not found"}`|`CalledGET : /dascbajb` <br \ > This endpoint is not implemented / unavailable at the moment !!|
+| ✅ `health check` | `http://0.0.0.0:8080/health` |`{"uptime":29.560686169,` <br \ > `"message":"OK","timestamp":1644057630652}`|`CalledGET : /health`|
 
 
 
@@ -126,17 +127,17 @@ Up About a minute ago
 ```
 
 Stop using 👉 
-   1. **CONTAINER ID** 
+1.**CONTAINER ID** 
     ```shell
     docker stop a5a149a5346
-    ``` 
-    2. **NAMES** 
+    ```
+    
+2.**NAMES** 
     ```shell
     docker stop ecstatic_cray
     ```
 
-In case you want to confirm:
-run `docker ps` it should show no running image 
+> In case you want to confirm ---->> run `docker ps` it should show no running image 
 
 ```shell
 docker ps

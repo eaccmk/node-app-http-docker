@@ -6,11 +6,11 @@
 1. [What is node-app-http-docker ❓](#what-is-node-app-http-docker-)
 2. [Project setup 💼](#project-setup-)
 3. [Running docker 🐋](#running-docker-)
-   * [Verify docker Image 🖼️](#verify-docker-image) 
-4. [Running docker Image](#running-docker-image)
-5. [Testing (is it workong)](#testing-is-it-workong-)
-6. [STOPPING docker (running container)](#stopping-docker-docker-container-)
-7. [MIT LICENSE](#license-)
+   * [Verify docker Image 🖼️](#verify-docker-image-) 
+4. [Running docker Image 🎽](#running-docker-image-)
+5. [Testing (is it workong) ✅ ❎](#testing-is-it-workong-)
+6. [STOPPING docker (running container) 🛑](#stopping-docker-docker-container-)
+7. [MIT LICENSE 🛡️ ](#license-)
 
 
 ## What is node-app-http-docker ❓

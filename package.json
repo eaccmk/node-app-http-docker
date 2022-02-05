@@ -1,0 +1,24 @@
+{
+  "name": "node-app-http-docker",
+  "version": "0.0.1",
+  "description": "Dev Docker instance / image running a NodeJS server.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docker",
+    "nodejs",
+    "sample",
+    "example",
+    "server",
+    "js",
+    "javascript",
+    "local",
+    "localhost",
+    "8080"
+  ],
+  "author": "Millan Kaul (eaccmk)",
+  "homepage":"https://github.com/eaccmk/node-app-http-docker#readme",
+  "license": "ISC"
+}

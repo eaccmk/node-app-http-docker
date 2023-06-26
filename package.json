@@ -1,6 +1,6 @@
 {
   "name": "node-app-http-docker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dev Docker instance / image running a NodeJS server.",
   "main": "app.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "example",
     "server",
     "js",
+    "api-testing",
     "javascript",
     "local",
     "localhost",

@@ -1,5 +1,5 @@
 // controller.js
-// Logic behind the functionalities
+// Logic behind the Functionality
 
 const data = require("./data");
 

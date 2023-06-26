@@ -1,12 +1,9 @@
-//main app / service
 //app.js
 const http = require("http");
 const Todo = require("./controller");
 const { getReqData } = require("./utils");
 
-//const PORT = process.env.PORT || 5000;
-// Constants
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const HOST = "localhost";
 
 const server = http.createServer(async (req, res) => {
@@ -125,7 +122,7 @@ const server = http.createServer(async (req, res) => {
 
     // No route present
     else {
-        console.log(
+        console.warn(
             "This endpoint is not implemented / unavailable at the moment !!"
         );
         res.writeHead(404, { "Content-Type": "application/json" });
@@ -135,5 +132,4 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
      console.log(`server started on ${HOST}  port: ${PORT}`);
-//     console.log(`server started on port: ${PORT}`);
 });

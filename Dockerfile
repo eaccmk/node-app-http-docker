@@ -1,7 +1,7 @@
 #### Author : https://github.com/eaccmk ###
 
 # Use and install node v16 first
-FROM node:16
+FROM node:18
 
 # Create app directory
 WORKDIR /usr/src/app

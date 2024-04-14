@@ -1,7 +1,7 @@
 #### Author : https://github.com/eaccmk ###
 
-# Use and install node v16 first
-FROM node:18
+# Use and install node v20 first [ April 2024]
+FROM node:20
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -18,5 +18,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
-CMD [ "node", "app.js" ]
+EXPOSE 4040
+CMD [ "node", "app.js", "--host", "0.0.0.0" ]

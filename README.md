@@ -19,7 +19,7 @@ It is a working project (non Prod ready)
 
 For getting started with a RESTFUL api server locally using [docker](https://docs.docker.com/)
 
-- It 🏃runs a server (docker) using `nodejs` [v16] 
+- It 🏃runs a server (docker) using `nodejs` [v20] - April 2024 
 - Exposes following  RESTFUL endpoints ( no database required) with all **CRUD** operations
 
 |**Rest API** call          | **CRUD** operation | REST endpoints|
@@ -57,12 +57,22 @@ cd node-app-http-docker
 
 If not, its highly recomended to [Get docker](https://docs.docker.com/get-docker/)
 
+## Running docker compose 🐋🐋
 
-## Running docker 🐋
-
+```shell
+docker compose up
 ```
+
+### Running docker build and run 🐋
+
+<details>
+  <summary>Expand to see steps</summary>
+  
+
+ ```
 docker build . -t node-app-http-docker
 ```
+
 
 > To know why we used `-t Allocate a pseudo-TTY` read this [stackoverflow thread](https://stackoverflow.com/a/40026942)
 
@@ -99,6 +109,9 @@ For more details on `-p`  read [**Publish or expose port (-p, --expose)**🔗](h
 ```shell
 docker ps
 ```
+</details>
+
+
 
 ## Testing (is it working ✅ ❎)
 
@@ -111,8 +124,19 @@ Lets hit the docker image as a **client** / **User**
 | ✅ `health check` | `http://0.0.0.0:8080/health` |`{"uptime":29.560686169,` <br /> `"message":"OK","timestamp":1644057630652}`|`CalledGET : /health`|
 
 
+## STOPPING docker compose 🐋
 
-## STOPPING docker (docker container) 🛑
+```shell
+docker compose down
+```
+
+
+### STOPPING docker (docker container) 🛑
+
+
+<details>
+  <summary>Expand to see steps</summary>
+
 
 firts lets find the  runing one
 `docker ps`
@@ -137,8 +161,12 @@ Stop using 👉
     ```shell
     docker stop ecstatic_cray
     ```
+</details>
 
-> In case you want to confirm ---->> run `docker ps` it should show no running image 
+
+<br>
+
+In case you want to confirm run `docker ps` it should show no running process under listed images
 
 ```shell
 docker ps
